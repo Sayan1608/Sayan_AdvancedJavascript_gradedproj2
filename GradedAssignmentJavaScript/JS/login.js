@@ -5,7 +5,7 @@ function login() {
     window.localStorage.setItem('username', 'Sayan');
     window.localStorage.setItem('password', 'admin');
     // Will be an API call in production
-    if(username === username && password === password) {
+    if(username === localStorage.getItem('username') && password === localStorage.getItem('password')) {
         window.location = 'resume.html';
     } else {
         document.getElementById('invalid-login').style.display = 'block';
@@ -13,3 +13,11 @@ function login() {
         document.getElementById('password-input').value = '';
     }
 }
+
+function preventBack() {
+    window.history.forward(); 
+}
+  
+setTimeout("preventBack()", 0);
+  
+window.onunload = function () { null };
